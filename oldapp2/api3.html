@@ -1,0 +1,21 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+ 
+ function Category() {
+	var Category = {};
+      Category.mstIndCatID = '10003';
+		$.ajax({
+            url: "http://imescustomerapi.evalai.com/api/StaticData/GetIndustryNames",
+            type: "POST",
+            dataType: "json",
+			data: Category,
+            success: function(data) {
+                jQuery.each(data, function(index, value) {
+                        console.log(data);
+                        `All you API data is here`
+                    })
+                }
+            });
+  }			
+</script>

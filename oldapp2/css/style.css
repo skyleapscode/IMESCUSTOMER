@@ -1,0 +1,139 @@
+.navbar-header{
+	background-color:#fff;
+}
+/* .navbar-toggle, .navbar-toggle.active, .navbar-toggle:hover{ */
+	/* background-color:#007d93; */
+	/* color:#fff !important; */
+/* } */
+.icon-bar{
+	color:#fff !important;
+}
+.offers{
+	background-color:#fff;
+	margin-top:-10px;
+	height:250px;
+}
+.offer-image img{
+	width:1500px;
+}
+.form-control{
+	margin-left:30px;
+	margin-bottom:5px;
+}
+.navbar-fixed-bottom{
+	margin-top:20px;
+	margin-bottom:-20px;
+}
+.btn-default{
+	margin-left:-20px;
+}
+.footer-top{
+	height:20px;
+	background-color:#1b1b1b;
+}
+.footer-bg{
+	background-color:#323232;
+}
+.list-inline li,.list-inline li a{
+	color:#fff;
+}
+.new-product{
+	margin-top:0px;
+	padding-bottom:10px;
+}
+.discount{
+	margin-top:-70px;
+}
+.color1 h2{
+	margin-top:5px;
+	margin-right:5px;
+	
+	background-color:#ccc;
+}
+.map1{
+	height:50px;
+}
+.itemview{
+	padding-left:50px;
+}
+.itemview h3{
+	padding-bottom:30px;
+}
+.checked {
+    color: orange;
+}
+.map-edit{
+	padding-top:20px;
+	padding-bottom:20px;
+	
+}
+.map-edit ul> li a{
+	font-size:18px;
+	color:#000;
+	padding-right:10px;
+}
+.map-edit ul> li i{
+	padding-right:10px;
+}
+.pad-t-20{
+	margin-top:20px;
+	margin-bottom:-30px;
+}
+.pad-b-30{
+	padding-bottom:30px;
+}
+.pad-t-50{
+	padding-top:50px;
+}
+.size li{
+	font-size:17px;
+}
+.brand li{
+	font-size:17px;
+}
+.color li{
+	font-size:17px;
+}
+input[type=checkbox] {
+  display: block;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+}
+
+
+
+input[type=checkbox] {
+  content: "\2714";
+  border: 0.1em solid #000;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding-left: 0.2em;
+  padding-bottom: 0.3em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+}
+
+
+@media only screen and (min-width : 320px) {
+		
+}
+
+    /* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+	
+	
+
+
+}
+
+    /* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+    }
+
+

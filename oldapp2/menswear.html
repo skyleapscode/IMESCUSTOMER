@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>IMES</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<style>
+		.fa-arrow-left{
+		margin-right:50px;}
+	</style>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+            $(document).ready(function () {
+                test(10016, true);
+            });
+
+            function test(mstIndCatID) {
+				
+                $.ajax({
+                    type: "POST",
+                    url: "http://imescustomerapi.evalai.com/api/StaticData/GetIndustryNames",
+                    data: JSON.stringify({ mstIndCatID: 10016 }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+					var i,x = "";
+						  var data = JSON.stringify(response.data, null, 4); ;
+						   var obj = JSON.parse(data);
+							for (i in obj) {
+  x +='<div class="col-sm-6 col-xs-6 "><a href="#"><img class="img-responsive" src="image/jeans.png"><h5 class="text-center">' + obj[i].lmcLongCodeValueName + '</h5></a></div>';
+
+}
+document.getElementById("cat").innerHTML = x;
+						  <!-- document.getElementById("cat").innerHTML = data; -->
+                        
+						console.log(data);
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                        alert(xhr.responseText);
+                    }
+                });
+				
+            }
+
+        </script>
+	
+	
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand pull-right" href="index.html">IMES</a>
+		
+	</div>
+	<div class="container-fluid">
+	<div class="row">
+        <div class="col-sm-8 col-xs-8">
+           <input type="text" class="form-control" placeholder="Search" > 
+        </div>
+		<div class="col-sm-4 col-xs-4">
+            <button type="submit" class="btn btn-default"><span><i class="fa fa-search" aria-hidden="true"></i></span></button>
+        </div>
+	</div>
+</div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">My Profile</a></li>
+		<li><a href="category.html">Category</a></li>
+        <li><a href="#">Wish List</a></li>
+        <li><a href="#">Cart</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div class="category">
+		<div class="container-fluid">
+			<h3><a href="clothing.html"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>Menswear</h3>
+			<div class="row" id="cat">
+				
+			</div>
+			
+		</div>
+	</div>
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+	<div class="footer-bg">
+  <div class="container">
+    <div class="row">
+			<div class="col-sm-12 col-xs-12">
+			   <div class="footer-main text-center">
+					<ul class="list-inline">
+						<li><a >IMES  |</a> All Rights reserved</li>
+					</ul>
+			  </div>
+			</div> 
+			
+		</div> 
+  </div></div>
+</nav>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

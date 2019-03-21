@@ -1,0 +1,28 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+            $(document).ready(function () {
+                test(10003, true);
+            });
+
+            function test(mstIndCatID) {
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://imescustomerapi.evalai.com/api/StaticData/GetIndustryNames",
+                    data: JSON.stringify({ mstIndCatID: 10003 }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        alert('success');
+						console.log(data);
+                        //more stuff
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                        alert(xhr.responseText);
+                    }
+                });
+				
+            }
+
+        </script>

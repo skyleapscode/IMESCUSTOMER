@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="MetronicApp">
+<head>
+    <title>IMES Category</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <base href="/">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <!--<link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />-->
+    <link href="../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />-->
+    <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+    <link id="ng_load_plugins_before" />
+    <link href="../assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/layouts/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <!--<link href="assets/global/plugins/ui-grid/ui-grid.min.css" rel="stylesheet" />-->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Bootstrap -->
+    <link href="assets/global/css/style.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body ng-controller="CategoryController" style="background-color:white">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand pull-right" href="index.html">IMES</a>
+
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8 col-xs-8">
+                        <input type="text" class="form-control" ng-model="searchText" placeholder="Search Products">
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                        <button type="submit" class="btn btn-default" ng-click="redirectVendorSearch(searchText)"><span><i class="fa fa-search" aria-hidden="true"></i></span></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">My Profile</a></li>
+                    <li ng-click=""><a href="#">Category</a></li>
+                    <li><a href="#">Wish List</a></li>
+                    <li><a href="#">Cart</a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="category pad-b-30">
+        <div class="container-fluid">
+            <div class="row" ng-init="geturl()">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="col-sm-6 col-xs-6" ng-repeat="n in category" ng-click="redirectSubcat(n.cldcldID)" ><a href="clothing.html"><img class="img-responsive" src="{{n.url}}"><h5 class="text-center">{{n.cldIDValue}}</h5></a></div>
+                </div>
+                <!-- <div class="col-sm-6 col-xs-6 "> -->
+                <!-- <a href="clothing.html"><img class="img-responsive" src="image/cloth.png"> -->
+                <!-- <h5 class="text-center">Clothing</h5></a> -->
+                <!-- </div> -->
+                <!-- <div class="col-sm-6 col-xs-6 "> -->
+                <!-- <a href="footwear.html"><img class="img-responsive" src="image/footware.png"> -->
+                <!-- <h5 class="text-center">Footwear</h5></a> -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                <!-- <div class="col-sm-6 col-xs-6 color1"> -->
+                <!-- <a href="#"><img class="img-responsive" src="image/food.png"> -->
+                <!-- <h5 class="text-center">Food & Beverages</h5></a> -->
+                <!-- </div> -->
+                <!-- <div class="col-sm-6 col-xs-6 "> -->
+                <!-- <a href="#"><img class="img-responsive" src="image/electrical.png"> -->
+                <!-- <h5 class="text-center">Electricals</h5></a> -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                <!-- <div class="col-sm-6 col-xs-6 color1"> -->
+                <!-- <a href="#"><img class="img-responsive" src="image/home.png"> -->
+                <!-- <h5 class="text-center">Home & Retailing</h5></a> -->
+                <!-- </div> -->
+                <!-- <div class="col-sm-6 col-xs-6 color1"> -->
+                <!-- <a href="#"><img class="img-responsive" src="image/health.png"> -->
+                <!-- <h5 class="text-center">Health & Beauty</h5></a> -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                <!-- <div class="col-sm-6 col-xs-6 color1"> -->
+                <!-- <a href="#"><img class="img-responsive" src="image/books.png"> -->
+                <!-- <h5 class="text-center">Books</h5></a> -->
+                <!-- </div> -->
+                <!-- <div class="col-sm-6 col-xs-6 color1"> -->
+                <!-- <a href="#"><img class="img-responsive" src="image/jewellary.png"> -->
+                <!-- <h5 class="text-center">Jewellery & Accessories</h5></a> -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                <!-- <div class="col-sm-6 col-xs-6 color1"> -->
+                <!-- <a href="#"><img class="img-responsive" src="image/entertainment.png"> -->
+                <!-- <h5 class="text-center">Entertainment</h5></a> -->
+                <!-- </div> -->
+                <!-- <div class="col-sm-6 col-xs-6 color1"> -->
+                <!-- <a href="#"><img class="img-responsive" src="image/pets.png"> -->
+                <!-- <h5 class="text-center">Pets</h5></a> -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                <!-- </div> -->
+                <!-- </div> -->
+            </div>
+            <nav class="navbar navbar-default navbar-fixed-bottom pad-t-20">
+                <div class="footer-bg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <div class="footer-main text-center">
+                                    <ul class="list-inline">
+                                        <li><a>IMES  |</a> All Rights reserved</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- <footer > -->
+            <!-- <div class="footer-bg"> -->
+            <!-- <div class="container-fluid"> -->
+            <!-- <div class="row"> -->
+            <!-- <div class="col-sm-12 col-xs-12"> -->
+            <!-- <div class="footer-main text-center"> -->
+            <!-- <ul class="list-inline"> -->
+            <!-- <li><a >IMES  |</a> All Rights reserved</li> -->
+            <!-- </ul> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </footer> -->
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            
+            </div>
+        </div>
+    <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!-- END CORE JQUERY PLUGINS -->
+    <!-- BEGIN CORE ANGULARJS PLUGINS -->
+    <!--<script src="//maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>-->
+    <script src="../assets/global/plugins/angularjs/angular.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/angularjs/angular-sanitize.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/angularjs/angular-touch.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/angularjs/plugins/angular-ui-router.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/angularjs/plugins/ocLazyLoad.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap-toastr/toastr.js" type="text/javascript"></script>
+    <!--<script src="Scripts/angular/angular-cookies.js" type="text/javascript"></script>-->
+    <!--<script src="Scripts/angular/angular-animate.js"></script>-->
+    <!--<script src="Scripts/FileSaver.js"></script>-->
+    <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+    <!--<script src="Scripts/quick-ng-repeat.js"></script>-->
+    <!-- END CORE ANGULARJS PLUGINS -->
+    <!-- BEGIN APP LEVEL ANGULARJS SCRIPTS -->
+    <script src="../Scripts/main.js" type="text/javascript"></script>
+    <!--<script src="../Scripts/directives.js" type="text/javascript"></script>-->
+    <!-- END APP LEVEL ANGULARJS SCRIPTS -->
+    <!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
+    <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+    <script src="../assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
+    <script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+    <!--<script src="../assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>-->
+    <script src="../assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
+
+    <script src="../assets/pages/scripts/ui-bootbox.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <!--<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDwBbUaAY0xdIbzy0Pldgmb6tIu4apMumg&libraries=geometry,places" async defer></script>-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+</body>
+</html>
